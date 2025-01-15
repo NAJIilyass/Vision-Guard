@@ -18,7 +18,7 @@ const predictPatient = async (req, res) => {
     try {
         const response = await patientService.predictPatient(
             { first_name, last_name, email, phone, address },
-            fundusImage, // Pass the image as it is
+            fundusImage,
             token
         );
 

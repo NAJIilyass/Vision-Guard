@@ -3,6 +3,7 @@ require("dotenv").config();
 
 // Login user
 const loginUser = async (req, res) => {
+    console.log("arr");
     const { email, password } = req.body;
     try {
         const token = await userService.login(email, password);
@@ -37,7 +38,6 @@ const signupUser = async (req, res) => {
 
 // Validate token
 const validateToken = async (req, res) => {
-    console.log("arrive");
     const { token } = req.body;
 
     try {
