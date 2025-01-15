@@ -1,0 +1,10 @@
+fastapi
+uvicorn
+tensorflow
+opencv-python-headless
+numpy
+requests
+pydantic
+python-multipart
+httpx
+python-dotenv

@@ -1,0 +1,6 @@
+venv/
+.env
+*.pyc
+*.pyo
+__pycache__/
+app/model/my_model_directory/
