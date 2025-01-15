@@ -1,0 +1,16 @@
+<header *ngIf="!isHomePage" class="bg-[#F8F8F8] border-b border-[#3C36DB] pb-2 pt-3 px-20">
+  <div class="w-16 h-16">
+    <img src="/logo.png" alt="logo" class="cursor-pointer">
+  </div>
+</header>
+
+<header *ngIf="isHomePage" class="bg-[#F8F8F8] border-b border-[#3C36DB] pb-2 pt-3 px-20 flex justify-between items-center">
+  <div class="w-16 h-16">
+    <img src="/logo.png" alt="logo" class="cursor-pointer">
+  </div>
+  <div class="text-[#3C36DB] text-lg cursor-pointer mb-1" (click)="logout()">
+    Log out
+  </div>
+</header>
+
+<router-outlet></router-outlet>

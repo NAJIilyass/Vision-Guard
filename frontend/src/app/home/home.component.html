@@ -1,0 +1,114 @@
+<div class="font-mono w-[57%] m-auto flex flex-col items-center py-16 gap-12">
+    <div class="flex flex-col items-center gap-3">
+      <p class="text-2xl font-bold">Enter Patient Information</p>
+      <p class="text-lg tracking-tight">This information should be accurate</p>
+    </div>
+
+    <form class="w-full flex flex-col items-center" (ngSubmit)="onSubmit()">
+        <!-- Input Text -->
+        <div class="w-full grid grid-cols-2 gap-x-24 gap-y-6 mb-6">
+            <!-- First name -->
+            <div class="flex flex-col gap-2">
+            <label>First name</label>
+            <input 
+                type="text"
+                [(ngModel)]="first_name"
+                name="first_name"
+                required   
+                class="border border-black py-1.5 px-2 text-sm rounded-md"  
+            >
+            </div>
+
+            <!-- Last name -->
+            <div class="flex flex-col gap-2">
+            <label>Last name</label>
+            <input 
+                type="text"
+                [(ngModel)]="last_name"
+                name="last_name"
+                required   
+                class="border border-black py-1.5 px-2 text-sm rounded-md"  
+            >
+            </div>
+
+            <!-- Email -->
+            <div class="flex flex-col gap-2">
+            <label>Email address</label>
+            <input 
+                type="email"
+                [(ngModel)]="email"
+                name="email"
+                required    
+                class="border border-black py-1.5 px-2 text-sm rounded-md" 
+            >
+            </div>
+
+            <!-- Phone -->
+            <div class="flex flex-col gap-2">
+            <label>Phone</label>
+            <input 
+                type="tel"
+                [(ngModel)]="phone"
+                name="phone"
+                required  
+                class="border border-black py-1.5 px-2 text-sm rounded-md"   
+            >
+            </div>
+
+            <!-- Address -->
+            <div class="flex flex-col gap-2">
+            <label>Address</label>
+            <input 
+                type="text"
+                [(ngModel)]="address"
+                name="address"
+                required   
+                class="border border-black py-1.5 px-2 text-sm rounded-md"  
+            >
+            </div>
+        </div>
+
+        <!-- Image Upload -->
+        <div class="flex flex-col gap-2 w-full mb-11">
+            <p>Upload Patient's Fundus photo</p>
+            <div 
+                class="border border-black text-sm rounded-md cursor-pointer py-10"
+                (click)="triggerFileUpload()"
+            >
+                <div class="flex flex-col items-center gap-6">
+                    <img 
+                        *ngIf="previewImage; else placeholder" 
+                        [src]="previewImage" 
+                        alt="Preview Image" 
+                        class="w-48 object-cover rounded-md"
+                    >
+                    <ng-template #placeholder>
+                        <img src="image_upload.png" alt="Upload Icon" class="w-16">
+                        <div class="text-center flex flex-col gap-1">
+                            <p class="text-[1.08rem]">
+                                <span class="font-bold">Upload an image</span> 
+                                or drag and drop
+                            </p>
+                            <p class="text-gray-600 text-sm">PNG, JPG, GIF up to 10MB</p>
+                        </div>
+                    </ng-template>
+                </div>
+                
+                <input 
+                    type="file"  
+                    #fundusUpload 
+                    accept="image/png, image/jpeg, image/gif" 
+                    (change)="onFileSelected($event)" 
+                    style="display: none;" 
+                    required
+                >
+            </div>
+        </div>
+  
+        <!-- Button -->
+        <button class="bg-[#3C36DB] text-white text-base text-center rounded-xl py-2 w-[57%]">
+            Send for Prediction
+        </button>
+    </form>
+  </div>
+  
